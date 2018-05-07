@@ -26,8 +26,8 @@ echo "<h2>Following ".sizeof($f)." instances.</h2>";
 echo "<b>videos from these instances will be available in ".$instance.".</b> <br /> <br/>";
 foreach($f as $follower){
     $instance_url = str_replace('/accounts/peertube', '', $follower);
-	$instance_short = str_replace('https://', '', $instance_url);
-	$instance_short = str_replace('http://', '', $instance_url);
+	$instance_short_1 = str_replace('https://', '', $instance_url);
+	$instance_short = str_replace('http://', '', $instance_short_1);
 	echo "<a href=\"".$instance_url."\">".$instance_short."</a><br />";
 }
 
@@ -60,8 +60,8 @@ echo "<h2>Followed by ".sizeof($f)." instances"."</h2>";
 echo "<b>videos of ".$instance." will be available in these instances</b><br /> <br/>";
 foreach($f as $follower){
 	$instance_url = str_replace('/accounts/peertube', '', $follower);
-	$instance_short = str_replace('https://', '', $instance_url);
-	$instance_short = str_replace('http://', '', $instance_url);
+	$instance_short_1 = str_replace('https://', '', $instance_url);
+	$instance_short = str_replace('http://', '', $instance_short_1);
 	echo "<a href=\"".$instance_url."\">".$instance_short."</a><br />";
 }
 
