@@ -84,9 +84,9 @@ if (!empty($instance)) {
 
 	<body>
 		<a href="https://github.com/skid9000/Peertube-Ninja"><img style="position: absolute; top: 0; right: 0; border: 0;" src="forkme.png" alt="Fork me on GitHub" data-canonical-src="forkme2.png"></a>
-		<center>
+		<div class="ui center container">
 			<form>
-				<div class="ui labeled huge input">
+				<div class="ui labeled fluid input">
 					<div class="ui label">
     					http(s)://
   					</div>
@@ -96,13 +96,13 @@ if (!empty($instance)) {
 				<button class="ui primary button" type="submit">Submit</button>
 			</form>
 
-			<?php
-				var_dump($output);
-			?>
+			<table>
+				
+			</table>
 			<br/>
 			<br/>
 			<div class="credits">Powered by Tuto-Craft Corporation, nekmi corp software development and NSA.OVH team</div>
-		</center>
+		</div>
 		<script src="https://nocdn.nsa.ovh/cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 		<script src="semantic.min.js"></script>
 	</body>
