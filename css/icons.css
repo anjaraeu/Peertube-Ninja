@@ -1,11 +1,11 @@
 @font-face {
-  font-family: 'rcgp-icons';
-  src: url('../font/rcgp-icons.eot?90307538');
-  src: url('../font/rcgp-icons.eot?90307538#iefix') format('embedded-opentype'),
-       url('../font/rcgp-icons.woff2?90307538') format('woff2'),
-       url('../font/rcgp-icons.woff?90307538') format('woff'),
-       url('../font/rcgp-icons.ttf?90307538') format('truetype'),
-       url('../font/rcgp-icons.svg?90307538#rcgp-icons') format('svg');
+  font-family: 'icons';
+  src: url('../font/icons.eot?90307538');
+  src: url('../font/icons.eot?90307538#iefix') format('embedded-opentype'),
+       url('../font/icons.woff2?90307538') format('woff2'),
+       url('../font/icons.woff?90307538') format('woff'),
+       url('../font/icons.ttf?90307538') format('truetype'),
+       url('../font/icons.svg?90307538#rcgp-icons') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -20,8 +20,8 @@
 }
 */
 
- [class^="rcgp-icon-"]:before, [class*=" rcgp-icon-"]:before {
-  font-family: "rcgp-icons";
+ [class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "icons";
   font-style: normal;
   font-weight: normal;
   speak: none;
@@ -55,5 +55,5 @@
   /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
 }
 
-.rcgp-icon-mastodon:before { content: '\e800'; } /* '' */
-.rcgp-icon-diaspora:before { content: '\e801'; } /* '' */
+.icon-mastodon:before { content: '\e800'; } /* '' */
+.icon-diaspora:before { content: '\e801'; } /* '' */

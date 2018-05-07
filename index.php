@@ -29,6 +29,7 @@ foreach($f as $follower){
 	$instance_short = str_replace('https://', '', $instance_url);
 	$matches = array();
 	preg_match('https?:\/\/((www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,2048}\.[a-z]{2,20})\/accounts\/peertube', $follower, $matches);
+	var_dump($matches);
 	echo "<a href=\"".$instance_url."\">".$matches[1]."</a><br />";
 }
 
