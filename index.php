@@ -1,73 +1,7 @@
 <?php
 $instance = $_REQUEST['instance'];
-$url      = "https://" . $instance;
-$cont     = true;
-$start    = 0;
-$f        = array();
-
-# Start counting instances following
-
-while($cont){
-	$followingsstr= file_get_contents($url."/api/v1/server/following?start=".$start); // TODO : omg
-	$followings = json_decode($followingsstr, true);
-	foreach($followings['data'] as $follower){
-			array_push($f,$follower['following']['url']);
-	}
-	$start+=15;
-	if(sizeof($followings['data'])<15)
-	 $cont=false;
-}
-
-# End counting instances following
-
-# Start listing instances following
-
-echo "<h2>Following ".sizeof($f)." instances.</h2>";
-echo "<b>videos from these instances will be available in ".$instance.".</b> <br /> <br/>";
-foreach($f as $follower){
-    $instance_url = str_replace('/accounts/peertube', '', $follower);
-	$instance_short_1 = str_replace('https://', '', $instance_url);
-	$instance_short = str_replace('http://', '', $instance_short_1);
-	echo "<a href=\"".$instance_url."\">".$instance_short."</a><br />";
-}
-
-# End listing instances following
-
-echo "<br/><br/>";
-$start=0;
-$f = array();
-$cont=true;
-
-# Start counting instances followers
-
-while($cont){
-	$followersstr= file_get_contents($url."/api/v1/server/followers?start=".$start);
-	$followers = json_decode($followersstr, true);
-	foreach($followers['data'] as $follower){
-		if (strpos($follower['follower']['url'], 'accounts/peertube') !== false)
-			array_push($f,$follower['follower']['url']);
-	}
-	$start+=15;
-	if(sizeof($followers['data'])<15)
-	 $cont=false;
-}
-
-# End counting instances followers
-
-# Start listing instances followers
-
-echo "<h2>Followed by ".sizeof($f)." instances"."</h2>";
-echo "<b>videos of ".$instance." will be available in these instances</b><br /> <br/>";
-foreach($f as $follower){
-	$instance_url = str_replace('/accounts/peertube', '', $follower);
-	$instance_short_1 = str_replace('https://', '', $instance_url);
-	$instance_short = str_replace('http://', '', $instance_short_1);
-	echo "<a href=\"".$instance_url."\">".$instance_short."</a><br />";
-}
-
-# End listing instances followers
-
 ?>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -90,7 +24,73 @@ foreach($f as $follower){
 			<?php
 				header("X-Author: skid9000 & leonekmi");
 				if (!empty($_REQUEST['instance'])) {
-			
+
+					$url      = "https://" . $instance;
+					$cont     = true;
+					$start    = 0;
+					$f        = array();
+
+					# Start counting instances following
+
+					while($cont){
+						$followingsstr= file_get_contents($url."/api/v1/server/following?start=".$start); // TODO : omg
+						$followings = json_decode($followingsstr, true);
+						foreach($followings['data'] as $follower){
+							array_push($f,$follower['following']['url']);
+						}
+						$start+=15;
+						if(sizeof($followings['data'])<15)
+						$cont=false;
+					}
+
+					# End counting instances following
+
+					# Start listing instances following
+
+					echo "<h2>Following ".sizeof($f)." instances.</h2>";
+					echo "<b>videos from these instances will be available in ".$instance.".</b> <br /> <br/>";
+					foreach($f as $follower){
+						$instance_url = str_replace('/accounts/peertube', '', $follower);
+						$instance_short_1 = str_replace('https://', '', $instance_url);
+						$instance_short = str_replace('http://', '', $instance_short_1);
+						echo "<a href=\"".$instance_url."\">".$instance_short."</a><br />";
+					}
+
+					# End listing instances following
+
+					echo "<br/><br/>";
+					$start=0;
+					$f = array();
+					$cont=true;
+
+					# Start counting instances followers
+
+					while($cont){
+						$followersstr= file_get_contents($url."/api/v1/server/followers?start=".$start);
+						$followers = json_decode($followersstr, true);
+						foreach($followers['data'] as $follower){
+							if (strpos($follower['follower']['url'], 'accounts/peertube') !== false)
+							array_push($f,$follower['follower']['url']);
+						}
+						$start+=15;
+						if(sizeof($followers['data'])<15)
+						$cont=false;
+					}
+
+					# End counting instances followers
+
+					# Start listing instances followers
+
+					echo "<h2>Followed by ".sizeof($f)." instances"."</h2>";
+					echo "<b>videos of ".$instance." will be available in these instances</b><br /> <br/>";
+					foreach($f as $follower){
+						$instance_url = str_replace('/accounts/peertube', '', $follower);
+						$instance_short_1 = str_replace('https://', '', $instance_url);
+						$instance_short = str_replace('http://', '', $instance_short_1);
+						echo "<a href=\"".$instance_url."\">".$instance_short."</a><br />";
+					}
+
+					# End listing instances followers
 				}
 			?>
 			<br/>
