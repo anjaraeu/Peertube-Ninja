@@ -1,7 +1,8 @@
 <?php
+$instance = $_REQUEST['instance']
 $url="https://"$instance
 $cont = true;
-$start=0;
+$start = 0;
 $f = array();
 
 # Start counting instances following
@@ -31,7 +32,7 @@ foreach($f as $follower){
 
 # End listing instances following
 
-echo "<br /><br />";
+echo "<br/><br/>";
 $start=0;
 $f = array();
 $cont=true;
@@ -62,40 +63,37 @@ foreach($f as $follower){
 
 # End listing instances followers
 
-<?php
-header("X-Author: skid9000 & leonekmi");
-
-if (!empty($_REQUEST['instance'])) {
-    
-}
-
 ?>
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<head>
-<title>Peertube Follow Tracker</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="semantic.min.css">
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="css/icons.css">
-</head>
+	<head>
+		<title>Peertube Follow Tracker</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="semantic.min.css">
+		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="css/icons.css">
+	</head>
 
-<body>
-<a href="https://github.com/nsaovh/rcgp"><img style="position: absolute; top: 0; right: 0; border: 0;" src="forkme.png" alt="Fork me on GitHub" data-canonical-src="forkme2.png"></a>
-<center>
-<form>
-  <input type="text" name="instance_name"><br>
-  <input type="submit" value="Submit">
-</form> 
-</a>
-<br/>
-<br/>
-<div class="credits">Powered by Tuto-Craft Corporation, nekmi corp software development and NSA.OVH team</div>
-</center>
-<script src="https://nocdn.nsa.ovh/cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="semantic.min.js"></script>
-<script src="select.js"></script>
-</body>
+	<body>
+		<a href="https://github.com/nsaovh/rcgp"><img style="position: absolute; top: 0; right: 0; border: 0;" src="forkme.png" alt="Fork me on GitHub" data-canonical-src="forkme2.png"></a>
+		<center>
+			<form>
+				<input type="text" name="instance">
+				<input type="submit" value="Submit">
+			</form>
 
+			<?php
+				header("X-Author: skid9000 & leonekmi");
+				if (!empty($_REQUEST['instance'])) {
+			
+				}
+			?>
+			<br/>
+			<br/>
+			<div class="credits">Powered by Tuto-Craft Corporation, nekmi corp software development and NSA.OVH team</div>
+		</center>
+		<script src="https://nocdn.nsa.ovh/cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+		<script src="semantic.min.js"></script>
+	</body>
 </html>
