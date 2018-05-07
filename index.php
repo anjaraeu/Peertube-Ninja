@@ -27,10 +27,8 @@ echo "<b>videos from these instances will be available in ".$instance.".</b> <br
 foreach($f as $follower){
     $instance_url = str_replace('/accounts/peertube', '', $follower);
 	$instance_short = str_replace('https://', '', $instance_url);
-	$matches = array();
-	preg_match('https?:\/\/((www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,2048}\.[a-z]{2,20})\/accounts\/peertube', $follower, $matches);
-	var_dump($matches);
-	echo "<a href=\"".$instance_url."\">".$matches[1]."</a><br />";
+	$instance_short = str_replace('http://', '', $instance_url);
+	echo "<a href=\"".$instance_url."\">".$instance_short."</a><br />";
 }
 
 # End listing instances following
@@ -61,7 +59,10 @@ while($cont){
 echo "<h2>Followed by ".sizeof($f)." instances"."</h2>";
 echo "<b>videos of ".$instance." will be available in these instances</b><br /> <br/>";
 foreach($f as $follower){
-	echo $follower."<br />";
+	$instance_url = str_replace('/accounts/peertube', '', $follower);
+	$instance_short = str_replace('https://', '', $instance_url);
+	$instance_short = str_replace('http://', '', $instance_url);
+	echo "<a href=\"".$instance_url."\">".$instance_short."</a><br />";
 }
 
 # End listing instances followers
