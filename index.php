@@ -59,7 +59,7 @@ if (!empty($instance)) {
 
 	# Start listing instances followers
 
-	$output['followed'] = "<h2>Followed by ".sizeof($f)." instances"."</h2><b>videos of ".$instance." will be available in these instances</b><br/><br/>";
+	$output['followed'] = "<h2>Followed by ".sizeof($f)." instances"."</h2><b>videos of ".$instance." will be available in these instances</b>";
 	foreach($f as $follower){
 		$instance_url = str_replace('/accounts/peertube', '', $follower);
 		$instance_short_1 = str_replace('https://', '', $instance_url);
@@ -102,8 +102,8 @@ if (!empty($instance)) {
 					<th><?php echo $output['followed']; ?></th>
 				</tr>
 				<tr>
-					<td><?php echo $output['following-table']; ?></td>
-					<td><?php echo $output['followed-table']; ?></td>
+					<td class="disblock"><?php echo $output['following-table']; ?></td>
+					<td class="disblock"><?php echo $output['followed-table']; ?></td>
 				</tr>
 			</table>
 			<br/>
