@@ -83,10 +83,13 @@ if (!empty($instance)) {
 	</head>
 
 	<body>
-		<a href="https://github.com/nsaovh/rcgp"><img style="position: absolute; top: 0; right: 0; border: 0;" src="forkme.png" alt="Fork me on GitHub" data-canonical-src="forkme2.png"></a>
+		<a href="https://github.com/skid9000/Peertube-Ninja"><img style="position: absolute; top: 0; right: 0; border: 0;" src="forkme.png" alt="Fork me on GitHub" data-canonical-src="forkme2.png"></a>
 		<center>
 			<form>
-				<div class="ui input">
+				<div class="ui labeled huge input">
+					<div class="ui label">
+    					http(s)://
+  					</div>
 					<input type="text" name="instance" placeholder="Instance domain (ex : peertube.nsa.ovh)">
 				</div>
 				
