@@ -16,7 +16,8 @@ p {
 
 .credits {
     font-size: 10px;
-    color: #e0e0e0;
+	color: #e0e0e0;
+	text-align: center;
 }
 
 .partage{

@@ -74,7 +74,7 @@ if (!empty($instance)) {
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Peertube Follow Tracker</title>
+		<title>Peertube Ninja</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="semantic.min.css">
@@ -84,7 +84,7 @@ if (!empty($instance)) {
 
 	<body>
 		<a href="https://github.com/skid9000/Peertube-Ninja"><img style="position: absolute; top: 0; right: 0; border: 0;" src="forkme.png" alt="Fork me on GitHub" data-canonical-src="forkme2.png"></a>
-		<div class="ui center container">
+		<div class="ui center aligned container">
 			<form>
 				<div class="ui labeled fluid input">
 					<div class="ui label">
@@ -97,7 +97,14 @@ if (!empty($instance)) {
 			</form>
 
 			<table>
-				
+				<tr>
+					<th><?php echo $output['following']; ?></th>
+					<th><?php echo $output['followed']; ?></th>
+				</tr>
+				<tr>
+					<td><?php echo $output['following-table']; ?></td>
+					<td><?php echo $output['followed-table']; ?></td>
+				</tr>
 			</table>
 			<br/>
 			<br/>
