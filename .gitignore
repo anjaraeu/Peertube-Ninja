@@ -1,0 +1,6 @@
+# Gpg crap
+
+*.sign
+*.unknown
+
+deploy.php
