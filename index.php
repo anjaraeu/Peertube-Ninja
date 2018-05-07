@@ -102,7 +102,7 @@ if (!empty($instance)) {
 					<th><?php echo $output['followed']; ?></th>
 				</tr>
 				<tr>
-					<td class="disblock"><?php echo $output['following-table']; ?></td>
+					<td><?php echo $output['following-table']; ?></td>
 					<td class="disblock"><?php echo $output['followed-table']; ?></td>
 				</tr>
 			</table>
