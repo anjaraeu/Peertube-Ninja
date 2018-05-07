@@ -1,6 +1,6 @@
 <?php
-$instance = $_REQUEST['instance']
-$url="https://"$instance
+$instance = $_REQUEST['instance'];
+$url="https://"$instance;
 $cont = true;
 $start = 0;
 $f = array();
