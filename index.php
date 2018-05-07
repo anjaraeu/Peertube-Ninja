@@ -83,7 +83,7 @@ if (!empty($instance)) {
 	</head>
 
 	<body>
-		<a href="https://github.com/skid9000/Peertube-Ninja"><img style="position: absolute; top: 0; right: 0; border: 0;" src="forkme.png" alt="Fork me on GitHub" data-canonical-src="forkme2.png"></a>
+		<a href="https://github.com/nsaovh/Peertube-Ninja"><img style="position: absolute; top: 0; right: 0; border: 0;" src="forkme.png" alt="Fork me on GitHub" data-canonical-src="forkme2.png"></a>
 		<div class="ui center aligned container">
 			<form>
 				<div class="ui labeled fluid input">
