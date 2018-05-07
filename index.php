@@ -1,9 +1,9 @@
 <?php
 $instance = $_REQUEST['instance'];
-$url="https://"$instance;
-$cont = true;
-$start = 0;
-$f = array();
+$url      = "https://" . $instance;
+$cont     = true;
+$start    = 0;
+$f        = array();
 
 # Start counting instances following
 
@@ -22,8 +22,8 @@ while($cont){
 
 # Start listing instances following
 
-echo "<h2>Following ".sizeof($f)." instances"."</h2>";
-echo "<b>videos from these instances will be available in "$instance".</b> <br /> <br/>";
+echo "<h2>Following ".sizeof($f)." instances.</h2>";
+echo "<b>videos from these instances will be available in ".$instance.".</b> <br /> <br/>";
 foreach($f as $follower){
     $instance_url = str_replace('/accounts/peertube', '', $follower);
     $instance_short = str_replace('https://', '', $instance_url);
@@ -56,7 +56,7 @@ while($cont){
 # Start listing instances followers
 
 echo "<h2>Followed by ".sizeof($f)." instances"."</h2>";
-echo "<b>videos of "$instance" will be available in these instances</b><br /> <br/>";
+echo "<b>videos of ".$instance." will be available in these instances</b><br /> <br/>";
 foreach($f as $follower){
 	echo $follower."<br />";
 }
