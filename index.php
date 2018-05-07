@@ -8,7 +8,7 @@ $f        = array();
 # Start counting instances following
 
 while($cont){
-	$followingsstr= file_get_contents($url."/api/v1/server/following?start=".$start);
+	$followingsstr= file_get_contents($url."/api/v1/server/following?start=".$start); // TODO : omg
 	$followings = json_decode($followingsstr, true);
 	foreach($followings['data'] as $follower){
 			array_push($f,$follower['following']['url']);
@@ -27,7 +27,7 @@ echo "<b>videos from these instances will be available in ".$instance.".</b> <br
 foreach($f as $follower){
     $instance_url = str_replace('/accounts/peertube', '', $follower);
     $instance_short = str_replace('https://', '', $instance_url);
-	echo $follower."<br />";
+	echo $instance_short."<br />";
 }
 
 # End listing instances following
