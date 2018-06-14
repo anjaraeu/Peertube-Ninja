@@ -1,9 +1,12 @@
 body {
 	background-color: #515151 !important;
+	padding: 1.25em;
 }
+
 a {
 	color: #e0e0e0 !important;
 }
+
 img {
 	object-fit: contain;
 	max-width: 100%;
