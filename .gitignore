@@ -4,3 +4,7 @@
 *.unknown
 
 deploy.php
+
+# Composer
+vendor/
+composer.lock

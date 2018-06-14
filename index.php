@@ -1,26 +1,30 @@
 <?php
 // eh ducon les headers c'est avant le doctype
-header("X-Author: skid9000 & leonekmi");
+require('vendor/autoload.php');
+use GuzzleHttp\Client;
 $instance = $_REQUEST['instance'];
 $output = array();
 if (!empty($instance)) {
 
-	$url      = "https://" . $instance;
-	$cont     = true;
-	$start    = 0;
-	$f        = array();
+	$webclient = new Client([
+		'base_uri' => 'https://'.$instance.'/api/v1/server/'
+	]);
+	$cont      = true;
+	$start     = 0;
+	$f         = array();
 
 	# Start counting instances following
 
 	while($cont){
-		$followingsstr= file_get_contents($url."/api/v1/server/following?start=".$start); // TODO : omg
+		$response = $webclient->get('following?start='.$start);
+		$followingsstr = $response->getBody();
 		$followings = json_decode($followingsstr, true);
 		foreach($followings['data'] as $follower){
 			array_push($f,$follower['following']['url']);
 		}
-		$start+=15;
+		$start += 15;
 		if(sizeof($followings['data'])<15)
-		$cont=false;
+		$cont = false;
 	}
 
 	# End counting instances following
@@ -44,7 +48,8 @@ if (!empty($instance)) {
 	# Start counting instances followers
 
 	while($cont){
-		$followersstr= file_get_contents($url."/api/v1/server/followers?start=".$start);
+		$response = $webclient->get('followers?start='.$start);
+		$followersstr = $response->getBody();
 		$followers = json_decode($followersstr, true);
 		foreach($followers['data'] as $follower){
 			if (strpos($follower['follower']['url'], 'accounts/peertube') !== false)
@@ -88,7 +93,7 @@ if (!empty($instance)) {
 			<form>
 				<div class="ui labeled fluid input">
 					<div class="ui label">
-    					http(s)://
+    					https://
   					</div>
 					<input type="text" name="instance" placeholder="Instance domain (ex : peertube.nsa.ovh)">
 				</div>
