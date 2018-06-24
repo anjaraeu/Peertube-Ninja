@@ -3,8 +3,15 @@ body {
 	padding: 1.25em;
 }
 
-a {
-	color: #e0e0e0 !important;
+table {
+	color: #d5d5d5;
+}
+
+table a {
+	color: #e0e0e0;
+}
+table a:hover {
+	color: #e0e0e0;
 }
 
 img {
