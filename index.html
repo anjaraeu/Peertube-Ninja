@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Peertube Ninja</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="semantic.min.css">
+		<link rel="stylesheet" href="notyf.min.css">
+		<link rel="stylesheet" href="style.css">
+	</head>
+
+	<body>
+		<a href="https://github.com/nsaovh/Peertube-Ninja"><img style="position: absolute; top: 0; right: 0; border: 0;" src="forkme.png" alt="Fork me on GitHub" data-canonical-src="forkme2.png"></a>
+		<div class="vue ui center aligned container">
+			<form @submit="fetchinst">
+				<div class="ui labeled action fluid input">
+					<div class="ui label">
+						https://
+					</div>
+					<input type="text" name="instance" v-model="instance" placeholder="Instance domain (ex : peertube.nsa.ovh)">
+					<button class="ui primary button" type="submit">Submit</button>
+				</div>
+			</form>
+			
+			<div class="ui segment" v-if="instancedata">
+				<h2 class="ui header">
+  					<img class="ui image" :src="'https://' + instancedata.host + '/client/assets/images/favicon.png'">
+  					<div class="content">
+						{{ instancedata.config.instance.name }}
+						<div class="sub header">{{ instancedata.config.instance.shortDescription }}</div>
+  					</div>
+				</h2>
+				<h3 class="ui header">
+  					<i class="users icon"></i>
+  					<div class="content">{{ instancedata.accounts }} accounts are listed on this instance (from this instance and following instances).</div>
+				</h3>
+				<h3 class="ui header">
+  					<i class="video icon"></i>
+  					<div class="content">{{ instancedata.videos }} videos are listed on this instance (from this instance and following instances).</div>
+				</h3>
+			</div>
+
+			<table v-if="instancedata">
+				<tr>
+					<th>
+						<h2>Following {{ instancedata.following }} instances</h2>
+						<b>videos from these instances will be available in {{ instancedata.host }}</b>
+					</th>
+					<th>
+						<h2>Followed by {{ instancedata.followed }} instances</h2>
+						<b>videos of {{ instancedata.host }} will be available in these instances</b>
+					</th>
+				</tr>
+				<tr>
+					<td><a v-for="host in instancedata.followingTable" :href="host" >{{ host }}<br/></a></td>
+					<td class="disblock"><a v-for="host in instancedata.followedTable" :href="host" >{{ host }}<br/></a></td>
+				</tr>
+			</table>
+			<div class="ui segment">
+				<h2 class="ui header">
+					<div class="content">Welcome to Peertube Ninja.</div>
+					<div class="sub header">Peertube Ninja is a free, simple tool to retrieve metrics from any Peertube instance. Just type in the URL of instance upthere.</div>
+				</h2>
+			</div>
+			<br/>
+			<br/>
+			<div class="credits">Powered by Tuto-Craft Corporation, nekmi corp software development and NSA.OVH team</div>
+		</div>
+		<div class="ui page dimmer">
+  			<img src="ninja.gif" class="ui medium image">
+			<em>Please wait... Ninja is searching for data !</em>
+		</div>
+		<script src="https://nocdn.nsa.ovh/cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+		<script src="semantic.min.js"></script>
+		<script src="notyf.min.js"></script>
+		<script src="vue.min.js"></script>
+		<script src="runtime.js"></script>
+	</body>
+</html>
