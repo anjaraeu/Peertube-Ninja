@@ -1,9 +1,6 @@
 body {
 	background-color: #515151 !important;
 	padding: 1.25em;
-}
-
-table {
 	color: #d5d5d5;
 }
 
@@ -14,24 +11,17 @@ table a:hover {
 	color: #e0e0e0;
 }
 
-img {
-	object-fit: contain;
-	max-width: 100%;
-	height: auto;
-}
-
-p {
-    color: #afafaf;
-}
-
 .credits {
     font-size: 10px;
-	color: #e0e0e0;
 	text-align: center;
 }
 
 .disblock {
 	display: block;
+}
+
+.ui.segment {
+	color: rgba(0, 0, 0, 0.871);
 }
 
 th {

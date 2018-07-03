@@ -113,14 +113,14 @@ if (!empty($instance)) {
 		<a href="https://github.com/nsaovh/Peertube-Ninja"><img style="position: absolute; top: 0; right: 0; border: 0;" src="forkme.png" alt="Fork me on GitHub" data-canonical-src="forkme2.png"></a>
 		<div class="ui center aligned container">
 			<form>
-				<div class="ui labeled fluid input">
+				<div class="ui labeled action fluid input">
 					<div class="ui label">
     					https://
   					</div>
 					<input type="text" name="instance" placeholder="Instance domain (ex : peertube.nsa.ovh)">
+					<button class="ui primary button" type="submit">Submit</button>
 				</div>
 				
-				<button class="ui primary button" type="submit">Submit</button>
 			</form>
 			
 			<?php if(!empty($instance)) { ?>
@@ -152,6 +152,13 @@ if (!empty($instance)) {
 					<td class="disblock"><?php echo $output['followed-table']; ?></td>
 				</tr>
 			</table>
+			<?php } else { ?>
+			<div class="ui segment">
+				<h2 class="ui header">
+					<div class="content">Welcome to Peertube Ninja.</div>
+					<div class="sub header">Peertube Ninja is a free, simple tool to retrieve metrics from any Peertube instance. Just type in the URL of instance upthere.</div>
+				</h2>
+			</div>
 			<?php } ?>
 			<br/>
 			<br/>
